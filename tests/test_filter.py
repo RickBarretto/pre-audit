@@ -1,6 +1,6 @@
 import pytest
 
-from core.filter import FilterForOsvVulns
+from models.filter import FilterForOsvVulns
 from data.jinja_fetched_data import (
     BLACKLISTED_VERSIONS,
     EXPECTED_VULNERABILITIES,
