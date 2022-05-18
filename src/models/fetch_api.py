@@ -1,6 +1,4 @@
 """Fetch the OSV API"""
-
-from pprint import pprint
 import requests
 
 from models.types.osv_model import OsvModel, OsvUrl
