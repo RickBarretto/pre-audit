@@ -8,26 +8,26 @@ class FilterByReport:
     """Filters results from OSV API"""
 
     @staticmethod
-    def get_report_id(report: dict) -> str:
+    def get_id(report: dict) -> str:
         return report["id"]
 
     @staticmethod
-    def get_report_summary(report: dict) -> str:
+    def get_summary(report: dict) -> str:
         return report["summary"]
 
     @staticmethod
-    def get_report_description(report: dict) -> str:
+    def get_description(report: dict) -> str:
         return report["details"]
 
     @staticmethod
-    def get_report_aliases(report: dict) -> list:
+    def get_aliases(report: dict) -> list:
         return report["aliases"]
 
     @staticmethod
-    def get_report_affected_versions(report: dict) -> list:
+    def get_affected_versions(report: dict) -> list:
         versions_arrays = [sub["versions"] for sub in report["affected"]]
         return flatten_list(versions_arrays)
 
     @staticmethod
-    def get_report_references(report: dict) -> list:
+    def get_references(report: dict) -> list:
         return report["references"]
