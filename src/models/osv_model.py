@@ -1,4 +1,5 @@
 """Defines The API Model data"""
+from models.types.url_model import Url
 
 
 class OsvModel:
@@ -8,7 +9,10 @@ class OsvModel:
 
     def get_data(self) -> str:
         model = str(
-            {"version": version, "package": {"name": package, "ecosystem": "PyPI"}}
+            {
+                "version": self.version,
+                "package": {"name": self.package, "ecosystem": "PyPI"},
+            }
         )
         return model
 
