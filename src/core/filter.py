@@ -6,7 +6,7 @@ class FilterForOsvVulns:
     """Filters results from OSV API"""
 
     def __init__(self, raw_data: dict):
-        data = __fetch(raw_data)
+        data = self.__fetch(raw_data)
         self.data = data
 
     def __fetch(self, raw_data: dict) -> list:
@@ -20,26 +20,16 @@ class FilterForOsvVulns:
         returns:
             id,
             description,
-            affected_versions,
-            fixed_version
+            affected
         """
 
         reports = [reports for reports in self.data]
 
         return [
-            {
-                "id": r["id"],
-                "description": r["details"],
-                "affected_versions": r["affected"].get("versions"),
-                "fixed_version": r["affected"].get("ranges"),
-            }
+            {"id": r["id"], "description": r["details"], "affected": r["affected"]}
             for r in reports
         ]
 
     def get_blacklisted_versions(self) -> list:
         """Returns a list of problematic versions"""
-
-        reports = [reports for reports in self.data]
-        not_flatten_list = [r["affected"].get("versions") for r in reports]
-
-        return [item for sub_list in not_flatten_list for item in sub_list]
+        pass
