@@ -11,16 +11,16 @@ entry = reports[0]
 
 
 def test_get_id():
-    assert FilterByReport.get_report_id(entry) == "PYSEC-2014-8"
+    assert FilterByReport.get_id(entry) == "PYSEC-2014-8"
 
 
 def test_get_description():
     description = "The default configuration for bccache.FileSystemBytecodeCache in Jinja2 before 2.7.2 does not properly create temporary files, which allows local users to gain privileges via a crafted .cache file with a name starting with __jinja2_ in /tmp."
-    assert FilterByReport.get_report_description(entry) == description
+    assert FilterByReport.get_description(entry) == description
 
 
 def test_get_aliases():
-    assert FilterByReport.get_report_aliases(entry) == ["CVE-2014-1402"]
+    assert FilterByReport.get_aliases(entry) == ["CVE-2014-1402"]
 
 
 def test_get_affected_versions():
@@ -45,4 +45,4 @@ def test_get_affected_versions():
         "2.7",
         "2.7.1",
     ]
-    assert FilterByReport.get_report_affected_versions(entry) == versions
+    assert FilterByReport.get_affected_versions(entry) == versions
