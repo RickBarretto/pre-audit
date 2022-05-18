@@ -3,14 +3,14 @@
 from pprint import pprint
 import requests
 
-from src.models.osv_model import OsvModel, OsvUrl
+from models.osv_model import OsvModel, OsvUrl
 
 
-def fetch_api(package: str, version: str) -> dict:
+def fetch_api(osv_model: OsvModel) -> dict:
     """Fetch the OSV API"""
 
     osv_link = OsvUrl().get_url()
-    osv_model = OsvModel(package, version).get_data()
+    osv_model = osv_model.get_data()
 
     response = requests.post(osv_link, data=osv_model)
 
