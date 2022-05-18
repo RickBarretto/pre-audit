@@ -5,7 +5,20 @@ from models.utils.flatten_list import flatten_list
 
 
 class FilterByReport:
-    """Filters results from OSV API"""
+    """Filters results from OSV API by report
+
+    - What are Reports?
+    When fetches the OSV API, it comes with a dict and a `vulns` item inside.
+    `vulns` is a list with reports, and each item is one report.
+
+    Methods:
+        - def get_id(report: dict) -> str:
+        - def get_summary(report: dict) -> str:
+        - def get_description(report: dict) -> str:
+        - def get_aliases(report: dict) -> list:
+        - def get_affected_versions(report: dict) -> list:
+        - def get_references(report: dict) -> list:
+    """
 
     @staticmethod
     def get_id(report: dict) -> str:
