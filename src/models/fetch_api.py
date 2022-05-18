@@ -3,7 +3,7 @@
 from pprint import pprint
 import requests
 
-from models.osv_model import OsvModel, OsvUrl
+from models.types.osv_model import OsvModel, OsvUrl
 
 
 def fetch_api(osv_model: OsvModel) -> dict:
