@@ -13,7 +13,7 @@ class OsvModel:
         return model
 
 
-class OsvUrl:
+class OsvUrl(Url):
     def __init__(self):
         self.url = "https://api.osv.dev/v1/query"
 
