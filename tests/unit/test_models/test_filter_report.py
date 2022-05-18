@@ -46,3 +46,56 @@ def test_get_affected_versions():
         "2.7.1",
     ]
     assert FilterByReport.get_affected_versions(entry) == versions
+
+
+def test_get_references():
+    references = [
+        {
+            "type": "WEB",
+            "url": "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=734747",
+        },
+        {
+            "type": "ADVISORY",
+            "url": "http://advisories.mageia.org/MGASA-2014-0028.html",
+        },
+        {"type": "WEB", "url": "http://jinja.pocoo.org/docs/changelog/"},
+        {
+            "type": "WEB",
+            "url": "http://openwall.com/lists/oss-security/2014/01/10/3",
+        },
+        {
+            "type": "REPORT",
+            "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1051421",
+        },
+        {
+            "type": "ADVISORY",
+            "url": "http://www.mandriva.com/security/advisories?name=MDVSA-2014:096",
+        },
+        {
+            "type": "WEB",
+            "url": "http://openwall.com/lists/oss-security/2014/01/10/2",
+        },
+        {"type": "ADVISORY", "url": "http://secunia.com/advisories/59017"},
+        {"type": "ADVISORY", "url": "http://secunia.com/advisories/58918"},
+        {"type": "ADVISORY", "url": "http://secunia.com/advisories/60770"},
+        {"type": "ADVISORY", "url": "http://secunia.com/advisories/60738"},
+        {"type": "ADVISORY", "url": "http://secunia.com/advisories/56287"},
+        {
+            "type": "WEB",
+            "url": "http://www.gentoo.org/security/en/glsa/glsa-201408-13.xml",
+        },
+        {
+            "type": "WEB",
+            "url": "https://oss.oracle.com/pipermail/el-errata/2014-June/004192.html",
+        },
+        {"type": "ADVISORY", "url": "http://secunia.com/advisories/58783"},
+        {
+            "type": "ADVISORY",
+            "url": "http://rhn.redhat.com/errata/RHSA-2014-0748.html",
+        },
+        {
+            "type": "ADVISORY",
+            "url": "http://rhn.redhat.com/errata/RHSA-2014-0747.html",
+        },
+    ]
+    assert FilterByReport.get_references(entry) == references
