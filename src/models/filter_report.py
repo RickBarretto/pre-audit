@@ -12,6 +12,10 @@ class FilterByReport:
         return report["id"]
 
     @staticmethod
+    def get_report_summary(report: dict) -> str:
+        return report["summary"]
+
+    @staticmethod
     def get_report_description(report: dict) -> str:
         return report["details"]
 
