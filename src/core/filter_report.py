@@ -24,7 +24,7 @@ class FilterByReport:
     def __init__(self, fetched_data: dict):
         self.reports: list = fetched_data.get("vulns")
 
-    def get_main_info(self):
+    def get_main_info(self) -> List[tuple]:
         """Get the ID and Detail from each report"""
         return [(report["id"], report["details"]) for report in reports]
 
