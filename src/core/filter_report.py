@@ -20,7 +20,9 @@ class FilterByReport:
         - def get_references(report: dict) -> list:
     """
 
-    @staticmethod
+    def __init__(self, fetched_data: dict):
+        self.reports: list = fetched_data.get("vulns")
+
     def get_id(report: dict) -> str:
         return report["id"]
 
