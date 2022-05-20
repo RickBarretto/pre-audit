@@ -38,7 +38,7 @@ class FilterByReport:
     def get_summary(self, report: Index) -> str:
         return report["summary"]
 
-    def get_description(report: Index) -> str:
+    def get_description(self, report: Index) -> str:
         return report["details"]
 
     def get_aliases(self, report: Index) -> list:
