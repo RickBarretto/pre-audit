@@ -10,8 +10,7 @@ packages = [
 ]
 
 [tool.poetry.scripts]
-pre-audit = "src.core.cli:audit_package"
-hello = "src.core.hello:start"
+pre-audit = "src.commands.cli:audit_package"
 
 [tool.poetry.dependencies]
 python = "^3.7"
