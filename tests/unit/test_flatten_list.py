@@ -1,4 +1,4 @@
-from models.utils.flatten_list import flatten_list
+from core.utils.flatten_list import flatten_list
 
 
 def test_function():

@@ -2,7 +2,7 @@ from pytest import fixture
 
 from data.jinja_fetched_data import RAW_DATA
 
-from models.filter_report import FilterByReport
+from core.filter_report import FilterByReport
 
 
 data = RAW_DATA

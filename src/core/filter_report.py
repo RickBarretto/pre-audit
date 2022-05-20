@@ -1,7 +1,7 @@
 """Filters results from OSV API
 """
 
-from models.utils.flatten_list import flatten_list
+from src.core.utils.flatten_list import flatten_list
 
 
 class FilterByReport:

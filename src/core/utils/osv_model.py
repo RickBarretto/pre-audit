@@ -1,5 +1,5 @@
 """Defines The API Model data"""
-from models.types.url_model import Url
+from src.core.utils.url_model import Url
 
 
 class OsvModel:
