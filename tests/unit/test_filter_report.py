@@ -2,9 +2,9 @@ import pytest
 
 from data.jinja_fetched_data import RAW_DATA, BLACKLISTED_VERSIONS
 
-from core.filter_report import FilterByReport
+from core.filter_report import Filter
 
-filter_class = FilterByReport(RAW_DATA)
+filter_class = Filter(RAW_DATA)
 index = 0
 
 
