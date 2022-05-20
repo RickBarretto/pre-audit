@@ -32,17 +32,17 @@ class FilterByReport:
         versions_arrays = [sub["affected"]["versions"] for sub in self.reports]
         return flatten_list(versions_arrays)
 
-    def get_id(report: dict) -> str:
+    def get_id(report: Index) -> str:
         return report["id"]
 
-    def get_summary(report: dict) -> str:
+    def get_summary(report: Index) -> str:
         return report["summary"]
 
-    def get_description(report: dict) -> str:
+    def get_description(report: Index) -> str:
         return report["details"]
 
-    def get_aliases(report: dict) -> list:
+    def get_aliases(report: Index) -> list:
         return report["aliases"]
 
-    def get_references(report: dict) -> list:
+    def get_references(report: Index) -> list:
         return report["references"]
