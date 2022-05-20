@@ -4,6 +4,9 @@
 from typing import List, Dict
 
 from src.core.utils.flatten_list import flatten_list
+from src.core.utils.generics.get_all_affected_versions_functions import (
+    AllAffectedVersions,
+)
 
 
 class FilterByReport:
@@ -33,19 +36,7 @@ class FilterByReport:
 
     def get_all_affected_versions(self) -> List[str]:
         """Get all affected versions from all reports"""
-        reports = self.reports
-
-        def __affected_dict(reports) -> dict:
-            return [report["affected"] for report in reports]
-
-        def __get_all_aff_versions(reports) -> list:
-            affected_reports = __affected_dict(reports)
-            not_flatten = [
-                a["versions"] for sublist in affected_reports for a in sublist
-            ]
-            return flatten_list(not_flatten)
-
-        return __get_all_aff_versions(reports)
+        return AllAffectedVersions.get(self.reports)
 
     def get_id(self, report_index: int) -> str:
         """Get a specific report's id"""
