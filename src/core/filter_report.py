@@ -2,6 +2,7 @@
 """
 
 from src.core.utils.flatten_list import flatten_list
+from src.core.utils.generics.index_model import Index
 
 
 class FilterByReport:
