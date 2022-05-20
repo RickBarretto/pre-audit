@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "poetry-audit"
+name = "pre-audit"
 version = "0.0.0"
 description = "A audit tool to use before to install any package"
 authors = ["RickBarretto <78623871+RickBarretto@users.noreply.github.com>"]
