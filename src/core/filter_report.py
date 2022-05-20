@@ -4,7 +4,7 @@
 from typing import List
 
 from src.core.utils.flatten_list import flatten_list
-from src.core.utils.generics.index_model import Index
+from src.core.utils.generics.generic_models import Index
 
 
 class FilterByReport:
