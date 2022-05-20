@@ -27,6 +27,10 @@ class FilterByReport:
         """Get the ID and Detail from each report"""
         return [(report["id"], report["details"]) for report in reports]
 
+    def get_all_affected_versions(report: dict) -> list:
+        versions_arrays = [sub["versions"] for sub in report["affected"]]
+        return flatten_list(versions_arrays)
+
     def get_id(report: dict) -> str:
         return report["id"]
 
@@ -38,10 +42,6 @@ class FilterByReport:
 
     def get_aliases(report: dict) -> list:
         return report["aliases"]
-
-    def get_affected_versions(report: dict) -> list:
-        versions_arrays = [sub["versions"] for sub in report["affected"]]
-        return flatten_list(versions_arrays)
 
     def get_references(report: dict) -> list:
         return report["references"]
