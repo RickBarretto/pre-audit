@@ -1,7 +1,7 @@
 """Fetch the OSV API"""
 import requests
 
-from src.core.types.osv_model import OsvModel, OsvUrl
+from src.core.utils.osv_model import OsvModel, OsvUrl
 
 
 def fetch_api(osv_model: OsvModel) -> dict:
