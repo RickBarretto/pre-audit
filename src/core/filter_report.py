@@ -9,7 +9,7 @@ from src.core.utils.generics.get_all_affected_versions_functions import (
 )
 
 
-class FilterByReport:
+class Filter:
     """Filters results from OSV API by report
 
     - What are Reports?
