@@ -5,7 +5,6 @@ from requests.exceptions import HTTPError, Timeout, ConnectionError
 
 from src.core.fetch_api import OsvApi
 from src.core.filter_report import Filter
-from src.core.utils.osv_model import OsvModel
 from src.core.utils.exceptions import PackageNotFound
 
 
@@ -15,10 +14,8 @@ from src.core.utils.exceptions import PackageNotFound
 def audit_package(package, version):
     """Fetches in OSV for vulnerabilities"""
 
-    pkg = OsvModel(package, version)
-
     try:
-        data = OsvApi(pkg).fetch()
+        data = OsvApi(package, version).fetch()
 
         f = Filter(data)
         click.secho("Vulnerabilities founded!\n", fg="red", bold=True)

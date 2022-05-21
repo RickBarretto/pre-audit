@@ -14,15 +14,14 @@ class OsvApi:
     """Deal with OsvApi to get package Vulnerabilities
 
     usage:
-    >>> django_pkg = OsvModel("Django", "3.0")
-    >>> response = OsvApi(django_pkg).fetch()
+    >>> OsvApi("Django", "3.0").fetch()
     {...}
     """
 
-    def __init__(self, osv_parameters: OsvModel):
+    def __init__(self, package: str, version: str):
 
         # Attributes
-        self.api_parameters = osv_parameters.get_data()
+        self.api_parameters = OsvModel(package, version).get_data()
 
     def fetch(self):
         json: dict = self.__request()
