@@ -1,5 +1,7 @@
 # pre-audit
 
+[![Python package](https://github.com/RickBarretto/pre-audit/actions/workflows/main.yml/badge.svg)](https://github.com/RickBarretto/pre-audit/actions/workflows/main.yml)
+
 > pre-audit is a application that tries to resolve some
 securit problems. Nothing too special, getting real...
 
