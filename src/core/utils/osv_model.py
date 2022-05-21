@@ -1,7 +1,5 @@
 """Defines The API Model data"""
 
-from src.core.utils.generics.url_model import Url
-
 
 class OsvModel:
     """Model to be used for fetch the OSV api
