@@ -1,5 +1,4 @@
-"""Filters results from OSV API
-"""
+"""Filters results from OSV API"""
 
 from typing import List, Dict
 
