@@ -42,8 +42,3 @@ class OsvApi:
         json = response.json()
 
         return json
-
-
-def raise_for_not_found(json: dict):
-    if not json:
-        raise PackageNotFound
