@@ -7,6 +7,11 @@
       "label": "Compile to ByteCode",
       "type": "shell",
       "command": "python -m compileall ./src/"
+    },
+    {
+      "label": "Generate Docs with pdoc",
+      "type": "shell",
+      "command": "poetry run pdoc src/ -o docs/"
     }
   ]
 }
