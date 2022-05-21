@@ -10,8 +10,7 @@ from src.core.utils.exceptions import PackageNotFound
 def fetch_api(osv_model: OsvModel) -> dict:
     """Fetch the OSV API and return a Json"""
 
-    osv_link = OsvUrl().get_url()
-    osv_model = osv_model.get_data()
+        osv_link = "https://api.osv.dev/v1/query"
 
     response = requests.post(osv_link, data=osv_model)
     response.raise_for_status()
