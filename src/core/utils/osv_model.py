@@ -22,13 +22,3 @@ class OsvModel:
             }
         )
         return model
-
-
-class OsvUrl(Url):
-    """Just the OSV url"""
-
-    def __init__(self):
-        self.url = "https://api.osv.dev/v1/query"
-
-    def get_url(self):
-        return self.url

@@ -3,7 +3,7 @@
 import requests
 from requests.exceptions import HTTPError
 
-from src.core.utils.osv_model import OsvModel, OsvUrl
+from src.core.utils.osv_model import OsvModel
 from src.core.utils.exceptions import PackageNotFound
 
 
