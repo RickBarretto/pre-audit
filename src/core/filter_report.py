@@ -29,7 +29,7 @@ class Filter:
     def __init__(self, fetched_data: dict):
         self.reports: list = fetched_data.get("vulns")
 
-    def get_main_info(self) -> List[tuple[str, str]]:
+    def get_main_info(self) -> List[tuple]:
         """Get the ID and Detail from all reports"""
         return [(report["id"], report["details"]) for report in self.reports]
 
@@ -53,6 +53,6 @@ class Filter:
         """Get a specific report's aliases"""
         return self.reports[report_index]["aliases"]
 
-    def get_references(self, report_index: int) -> List[Dict[str, str]]:
+    def get_references(self, report_index: int) -> List[dict]:
         """Get a specific report's references"""
         return self.reports[report_index]["references"]
