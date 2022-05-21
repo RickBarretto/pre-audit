@@ -4,6 +4,7 @@ import requests
 from requests.exceptions import HTTPError
 
 from src.core.utils.osv_model import OsvModel, OsvUrl
+from src.core.utils.exceptions import PackageNotFound
 
 
 def fetch_api(osv_model: OsvModel) -> dict:
@@ -17,3 +18,8 @@ def fetch_api(osv_model: OsvModel) -> dict:
     json = response.json()
 
     return json
+
+
+def raise_for_not_found(json: dict):
+    if not json:
+        raise PackageNotFound
