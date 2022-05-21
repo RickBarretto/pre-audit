@@ -38,9 +38,10 @@ class OsvApi:
 
         response = requests.post(osv_link, data=self.api_parameters)
         response.raise_for_status()
-    json = response.json()
 
-    return json
+        json = response.json()
+
+        return json
 
 
 def raise_for_not_found(json: dict):
