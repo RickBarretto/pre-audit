@@ -36,8 +36,8 @@ class OsvApi:
 
         osv_link = "https://api.osv.dev/v1/query"
 
-    response = requests.post(osv_link, data=osv_model)
-    response.raise_for_status()
+        response = requests.post(osv_link, data=self.api_parameters)
+        response.raise_for_status()
     json = response.json()
 
     return json
