@@ -1,7 +1,7 @@
 """This is the entry of terminal commands"""
 
 import click
-from requests.exceptions import HTTPError, Timeout
+from requests.exceptions import HTTPError, Timeout, ConnectionError
 
 from src.core.fetch_api import OsvApi
 from src.core.filter_report import Filter
@@ -31,5 +31,7 @@ def audit_package(package, version):
         click.secho("Package isn't in OSV's DataBase!\n", fg="red", bold=True)
     except HTTPError as err:
         click.secho("Http Error: {}\n".format(err), fg="red", bold=True)
+    except ConnectionError:
+        click.secho("Connection Error!\n".format(err), fg="red", bold=True)
     except Timeout:
         click.secho("Request Timeout! :(\n", fg="red", bold=True)
