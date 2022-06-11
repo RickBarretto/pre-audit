@@ -28,7 +28,7 @@ def audit_package(package, version):
         click.secho("Package isn't in OSV's DataBase!\n", fg="red", bold=True)
     except HTTPError as err:
         click.secho("Http Error: {}\n".format(err), fg="red", bold=True)
-    except ConnectionError:
+    except ConnectionError as err:
         click.secho("Connection Error!\n".format(err), fg="red", bold=True)
     except Timeout:
         click.secho("Request Timeout! :(\n", fg="red", bold=True)
