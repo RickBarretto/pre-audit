@@ -4,9 +4,8 @@ import click
 from requests.exceptions import HTTPError, Timeout, ConnectionError
 
 from src.commands.ux import message_type
+from src.commands.core.get_package_info import get_package_info
 
-from src.core.fetch_api import OsvApi
-from src.core.filter_report import Filter
 from src.core.utils.exceptions import PackageNotFound
 
 
@@ -17,12 +16,8 @@ def audit_package(package, version):
     """Fetches in OSV for vulnerabilities"""
 
     try:
-        data = OsvApi(package, version).fetch()
-
-        f = Filter(data)
+        info = get_package_info(package, version)
         message_type.warn("Vulnerabilities founded!\n")
-        info = f.get_main_info()
-
         for i in info:
             message_type.warn("{}: ".format(i[0]))
             message_type.info("{}\n".format(i[1]))
