@@ -4,7 +4,7 @@ import click
 from requests.exceptions import HTTPError, Timeout, ConnectionError
 
 from src.commands.ux import message_type
-from src.commands.core.get_package_info import get_package_info
+from src.commands.core import audit_command
 
 from src.core.utils.exceptions import PackageNotFound
 
@@ -12,15 +12,14 @@ from src.core.utils.exceptions import PackageNotFound
 @click.command(name="package")
 @click.argument("package")
 @click.argument("version")
-def audit_package(package, version):
+@click.option("--affected", is_flag=True)
+def audit_package(package, version, affected):
     """Fetches in OSV for vulnerabilities"""
 
+    has_all_affected_option = affected
+
     try:
-        info = get_package_info(package, version)
-        message_type.warn("Vulnerabilities founded!\n")
-        for i in info:
-            message_type.warn("{}: ".format(i[0]))
-            message_type.info("{}\n".format(i[1]))
+        audit_command.run(package, version, has_all_affected_option)
 
     except PackageNotFound:
         message_type.warn("Package isn't in OSV's DataBase!\n")
