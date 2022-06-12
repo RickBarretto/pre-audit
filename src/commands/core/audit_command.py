@@ -10,8 +10,8 @@ def run(package: str, version: str, has_all_affected_option: bool):
     data = get_package_info.fetch(package, version)
     info = get_package_info.get_main_info(data)
 
-    audit_command.echo_main(info)
+    audit_command_ui.echo_main(info)
 
     if has_all_affected_option:
         affected = get_package_info.get_all_affected_versions_info(data)
-        audit_command.echo_affected(affected)
+        audit_command_ui.echo_affected(affected)
