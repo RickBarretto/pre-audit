@@ -2,7 +2,7 @@
   "python.poetryPath": "poetry",
   "python.globalModuleInstallation": false,
   "python.testing.pytestArgs": [
-    "--cov=src test/"
+    "--cov=src --print test/"
   ],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
