@@ -24,20 +24,8 @@ class OsvApi:
         self.api_parameters = OsvModel(package, version).get_data()
 
     def fetch(self):
-        json: dict = self.__request()
+        json: dict = self._request()
         if json:
             return json
         else:
             raise PackageNotFound
-
-    def __request(self) -> dict:
-        """Fetch the OSV API and return a Json"""
-
-        osv_link = "https://api.osv.dev/v1/query"
-
-        response = requests.post(osv_link, data=self.api_parameters, timeout=3.05)
-        response.raise_for_status()
-
-        json = response.json()
-
-        return json
