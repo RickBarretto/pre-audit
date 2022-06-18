@@ -2,9 +2,11 @@
   "python.poetryPath": "poetry",
   "python.globalModuleInstallation": false,
   "python.testing.pytestArgs": [
-    "--cov=src --print test/"
+    "--cov=src",
+    "--print",
+    "test/"
   ],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
-  "python.formatting.provider": "black",
+  "python.formatting.provider": "black"
 }
