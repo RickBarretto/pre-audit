@@ -3,8 +3,8 @@
 import click
 from requests.exceptions import HTTPError, Timeout, ConnectionError
 
-from src.commands.ux import message_type
-from src.commands.core import audit_command
+from src.commands.ux.message_type import warn
+from src.commands.core.audit_command import run as run_audit
 
 from src.core.utils.exceptions import PackageNotFound
 
@@ -19,13 +19,13 @@ def audit_package(package, version, affected):
     has_all_affected_option = affected
 
     try:
-        audit_command.run(package, version, has_all_affected_option)
+        run_audit(package, version, has_all_affected_option)
 
     except PackageNotFound:
-        message_type.warn("Package isn't in OSV's DataBase!\n")
+        warn("Package isn't in OSV's DataBase!\n")
     except HTTPError as err:
-        message_type.warn("Http Error: {}\n".format(err))
+        warn("Http Error: {}\n".format(err))
     except ConnectionError as err:
-        message_type.warn("Connection Error!\n".format(err))
+        warn("Connection Error!\n".format(err))
     except Timeout:
-        message_type.warn("Request Timeout! :(\n")
+        warn("Request Timeout! :(\n")
