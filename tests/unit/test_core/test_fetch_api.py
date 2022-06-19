@@ -1,7 +1,8 @@
+"""Test API responses and Exceptions"""
+
 from unittest import mock
 
 import pytest
-
 import responses
 import requests
 
@@ -10,8 +11,11 @@ from src.core.utils.exceptions import PackageNotFound
 
 
 class TestApi:
+    """Tests without exceptions"""
+
     @responses.activate
     def test_api_ok(self):
+        """Checks the behavior when returns 200 with right package"""
 
         responses.add(
             method="POST",
@@ -31,6 +35,7 @@ class TestApi:
 
     @responses.activate
     def test_requests_with_wrong_package(self):
+        """Checks the behavior when returns 200, but package is wrong"""
 
         responses.add(
             method="POST",
@@ -45,8 +50,13 @@ class TestApi:
 
 
 class TestExceptions:
+    """Test the behavior when is raised an Exception"""
+
     @mock.patch("src.core.fetch_api.requesting.fetch")
     def test_package_not_found(self, mocked_fetch, printer):
+        """Test if `PackageNotFound` is raised
+        when api returns {} as data
+        """
 
         mocked_fetch.return_value = {}
 
@@ -57,6 +67,9 @@ class TestExceptions:
 
     @responses.activate
     def test_http_errors(self, printer):
+        """Test if `HTTPErros` is raised
+        when api returns 4xx or 5xx errors
+        """
 
         error404 = responses.Response(
             method="POST",

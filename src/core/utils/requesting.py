@@ -1,3 +1,8 @@
+"""Deals with Api directly
+
+Low level for `src.core.fetch_api`
+"""
+
 import requests
 
 
@@ -6,6 +11,9 @@ class OsvModel:
 
     It replaces the `package` and `version` parameters
     and post-processes the data to a string that the API can read.
+
+    >>> OsvModel("Django", "3.2").get_data()
+    ... "{'version': '3.2', 'package': {'name': 'Django', 'ecosystem': 'PyPI'}}"
     """
 
     def __init__(self, package: str, version: str):
@@ -23,7 +31,10 @@ class OsvModel:
 
 
 def fetch(api_parameters: OsvModel) -> dict:
-    """Fetch the OSV API and return a Json"""
+    """Fetch the OSV API and return a Json
+
+    It is needed a OsvModel because the data needs to be treated
+    """
 
     osv_link = "https://api.osv.dev/v1/query"
 
