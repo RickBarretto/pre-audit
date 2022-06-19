@@ -38,7 +38,7 @@ def test_all_affected_versions_command():
 # ----------------
 
 
-@mock.patch("src.commands.cli.run_audit", side_effect=PackageNotFound())
+@mock.patch("src.commands.cli.audit_core.run", side_effect=PackageNotFound())
 def test_package_not_founded_exception(mock_run_audit):
     with pytest.raises(PackageNotFound) as err:
         runner = CliRunner()
@@ -47,7 +47,7 @@ def test_package_not_founded_exception(mock_run_audit):
     assert "Package isn't in OSV's DataBase!" in result.output
 
 
-@mock.patch("src.commands.cli.run_audit", side_effect=HTTPError())
+@mock.patch("src.commands.cli.audit_core.run", side_effect=HTTPError())
 def test_http_error_exeption(mock_run_audit):
     with pytest.raises(HTTPError) as err:
         runner = CliRunner()
@@ -56,7 +56,7 @@ def test_http_error_exeption(mock_run_audit):
     assert "Http Error:" in result.output
 
 
-@mock.patch("src.commands.cli.run_audit", side_effect=ConnectionError())
+@mock.patch("src.commands.cli.audit_core.run", side_effect=ConnectionError())
 def test_connection_error_exeption(mock_run_audit):
     with pytest.raises(ConnectionError) as err:
         runner = CliRunner()
@@ -65,7 +65,7 @@ def test_connection_error_exeption(mock_run_audit):
     assert "Connection Error!" in result.output
 
 
-@mock.patch("src.commands.cli.run_audit", side_effect=Timeout())
+@mock.patch("src.commands.cli.audit_core.run", side_effect=Timeout())
 def test_timeout_exeption(mock_run_audit):
     with pytest.raises(Timeout) as err:
         runner = CliRunner()
