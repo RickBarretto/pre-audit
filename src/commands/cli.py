@@ -4,7 +4,7 @@ import click
 from requests.exceptions import HTTPError, Timeout, ConnectionError
 
 from src.commands.ux.message_type import warn
-from src.commands.core.audit_command import run as run_audit
+from src.commands.core import audit_core
 
 from src.core.utils.exceptions import PackageNotFound
 
@@ -19,7 +19,7 @@ def audit_package(package, version, affected):
     has_all_affected_option = affected
 
     try:
-        run_audit(package, version, has_all_affected_option)
+        audit_core.run(package, version, has_all_affected_option)
 
     except PackageNotFound:
         warn("Package isn't in OSV's DataBase!\n")
