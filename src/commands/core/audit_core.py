@@ -2,6 +2,7 @@
 
 from src.core.fetch_api import OsvApi
 from src.core.filter_report import Filter
+from src.commands.ux import message_type
 
 __all__ = ["run"]
 
