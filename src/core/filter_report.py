@@ -24,6 +24,7 @@ class Filter:
     """
 
     def __init__(self, fetched_data: dict):
+        """Automatically returns the values inside "vulns"."""
         self.reports: list = fetched_data.get("vulns")
 
     def get_main_info(self) -> List[tuple]:
