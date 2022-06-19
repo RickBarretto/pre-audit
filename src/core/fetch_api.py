@@ -23,7 +23,7 @@ class OsvApi:
         # Attributes
         self.api_parameters = requesting.OsvModel(package, version).get_data()
 
-    def fetch(self):
+    def fetch(self) -> dict:
         json: dict = requesting.fetch(self.api_parameters)
         if json:
             return json
