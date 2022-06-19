@@ -3,9 +3,7 @@
 from typing import List, Dict
 
 from src.core.utils.flatten_list import flatten_list
-from src.core.utils.get_all_affected_versions_functions import (
-    AllAffectedVersions,
-)
+from src.core.utils.get_all_affected_versions_functions import AllAffectedVersions
 
 
 class Filter:
