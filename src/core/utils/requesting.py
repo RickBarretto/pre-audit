@@ -1,4 +1,4 @@
-"""Defines The API Model data"""
+import requests
 
 
 class OsvModel:
@@ -20,3 +20,16 @@ class OsvModel:
             }
         )
         return model
+
+
+def fetch(api_parameters: OsvModel) -> dict:
+    """Fetch the OSV API and return a Json"""
+
+    osv_link = "https://api.osv.dev/v1/query"
+
+    response = requests.post(osv_link, data=api_parameters, timeout=3.05)
+    response.raise_for_status()
+
+    json = response.json()
+
+    return json

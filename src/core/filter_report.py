@@ -3,9 +3,7 @@
 from typing import List, Dict
 
 from src.core.utils.flatten_list import flatten_list
-from src.core.utils.get_all_affected_versions_functions import (
-    AllAffectedVersions,
-)
+from src.core.utils.get_all_affected_versions_functions import AllAffectedVersions
 
 
 class Filter:
@@ -19,7 +17,6 @@ class Filter:
         - get_main_info(self) -> list[ tuple[str, str] ]
         - get_all_affected_versions(self) -> list[str]
         - get_id(self, report_index: int) -> str
-        - get_summary(self, report_index: int) -> str
         - get_description(self, report_index: int) -> str
         - get_aliases(self, report_index: int) -> list[str]
         - get_affected_versions(self, report_index: int) -> list[str]
@@ -40,10 +37,6 @@ class Filter:
     def get_id(self, report_index: int) -> str:
         """Get a specific report's id"""
         return self.reports[report_index]["id"]
-
-    def get_summary(self, report_index: int) -> str:
-        """Get a specific report's summary"""
-        return self.reports[report_index]["summary"]
 
     def get_description(self, report_index: int) -> str:
         """Get a specific report's description"""

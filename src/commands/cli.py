@@ -3,32 +3,29 @@
 import click
 from requests.exceptions import HTTPError, Timeout, ConnectionError
 
-from src.core.fetch_api import OsvApi
-from src.core.filter_report import Filter
+from src.commands.ux.message_type import warn
+from src.commands.core.audit_command import run as run_audit
+
 from src.core.utils.exceptions import PackageNotFound
 
 
 @click.command(name="package")
 @click.argument("package")
 @click.argument("version")
-def audit_package(package, version):
+@click.option("--affected", is_flag=True)
+def audit_package(package, version, affected):
     """Fetches in OSV for vulnerabilities"""
 
+    has_all_affected_option = affected
+
     try:
-        data = OsvApi(package, version).fetch()
+        run_audit(package, version, has_all_affected_option)
 
-        f = Filter(data)
-        click.secho("Vulnerabilities founded!\n", fg="red", bold=True)
-        info = f.get_main_info()
-
-        for i in info:
-            click.secho("{}: ".format(i[0]), fg="red", bold=True)
-            click.secho("{}\n".format(i[1]), fg="blue")
     except PackageNotFound:
-        click.secho("Package isn't in OSV's DataBase!\n", fg="red", bold=True)
+        warn("Package isn't in OSV's DataBase!\n")
     except HTTPError as err:
-        click.secho("Http Error: {}\n".format(err), fg="red", bold=True)
-    except ConnectionError:
-        click.secho("Connection Error!\n".format(err), fg="red", bold=True)
+        warn("Http Error: {}\n".format(err))
+    except ConnectionError as err:
+        warn("Connection Error!\n".format(err))
     except Timeout:
-        click.secho("Request Timeout! :(\n", fg="red", bold=True)
+        warn("Request Timeout! :(\n")
