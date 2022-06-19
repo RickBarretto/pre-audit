@@ -8,6 +8,7 @@ from src.commands.core.audit_core import _Utils, run, Filter
 class TestUtils:
     @mock.patch("src.commands.core.audit_core.OsvApi.fetch")
     def test_fetch(self, mock_osv):
+        """Checks if Filter is returning values inside 'vulns'"""
 
         mock_osv.return_value = {
             "vulns": [{"id": "GHA-xxxx-xxxx"}, {"id": "GHA-yyyy-yyyy"}]

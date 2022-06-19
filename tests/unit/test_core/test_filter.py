@@ -1,3 +1,8 @@
+"""Test Filter
+
+- `core.filter_report`
+"""
+
 import pytest
 
 from core.filter_report import Filter
@@ -10,6 +15,10 @@ def index() -> int:
 
 @pytest.mark.usefixtures("django_filter")
 class TestDjangoFilter:
+    """Test Filter's methods
+    with real fetched data stored locally
+    """
+
     def test_get_main(self, django_filter, expected_main):
         assert django_filter.get_main_info() == expected_main
 
